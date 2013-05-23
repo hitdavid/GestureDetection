@@ -1,74 +1,16 @@
-================================================================================
-MICROSOFT »ù´¡Àà¿â: Handjet ÏîÄ¿¸ÅÊö
-===============================================================================
+è®¾è®¡è§„åˆ’ï¼š
 
-Ó¦ÓÃ³ÌÐòÏòµ¼ÒÑÎªÄú´´½¨ÁËÕâ¸ö Handjet Ó¦ÓÃ³ÌÐò¡£´ËÓ¦ÓÃ³ÌÐò²»½öÑÝÊ¾ Microsoft »ù´¡ÀàµÄ»ù±¾Ê¹ÓÃ·½·¨£¬»¹¿É×÷ÎªÄú±àÐ´Ó¦ÓÃ³ÌÐòµÄÆðµã¡£
-
-±¾ÎÄ¼þ¸ÅÒª½éÉÜ×é³É Handjet Ó¦ÓÃ³ÌÐòµÄÃ¿¸öÎÄ¼þµÄÄÚÈÝ¡£
-
-Handjet.vcxproj
-ÕâÊÇÊ¹ÓÃÓ¦ÓÃ³ÌÐòÏòµ¼Éú³ÉµÄ VC++ ÏîÄ¿µÄÖ÷ÏîÄ¿ÎÄ¼þ¡£ 
-Ëü°üº¬Éú³É¸ÃÎÄ¼þµÄ Visual C++ µÄ°æ±¾ÐÅÏ¢£¬ÒÔ¼°ÓÐ¹ØÊ¹ÓÃÓ¦ÓÃ³ÌÐòÏòµ¼Ñ¡ÔñµÄÆ½Ì¨¡¢ÅäÖÃºÍÏîÄ¿¹¦ÄÜµÄÐÅÏ¢¡£
-
-Handjet.vcxproj.filters
-    ÕâÊÇÊ¹ÓÃ¡°Ó¦ÓÃ³ÌÐòÏòµ¼¡±Éú³ÉµÄ VC++ ÏîÄ¿É¸Ñ¡Æ÷ÎÄ¼þ¡£
-    Ëü°üº¬ÓÐ¹ØÏîÄ¿ÎÄ¼þÓëÉ¸Ñ¡Æ÷Ö®¼äµÄ¹ØÁªÐÅÏ¢¡£ÔÚ IDE ÖÐ£¬Í¨¹ýÕâÖÖ¹ØÁª£¬ÔÚÌØ¶¨½ÚµãÏÂÒÔ·Ö×éÐÎÊ½ÏÔÊ¾¾ßÓÐÏàËÆÀ©Õ¹ÃûµÄÎÄ¼þ¡£ÀýÈç£¬¡°.cpp¡±ÎÄ¼þÓë¡°Ô´ÎÄ¼þ¡±É¸Ñ¡Æ÷¹ØÁª¡£
-
-Handjet.h
-ÕâÊÇÓ¦ÓÃ³ÌÐòµÄÖ÷ÒªÍ·ÎÄ¼þ¡£Ëü°üÀ¨ÆäËûÏîÄ¿ÌØ¶¨µÄÍ·ÎÄ¼þ(°üÀ¨ Resource.h)£¬²¢ÉùÃ÷ CHandjetApp Ó¦ÓÃ³ÌÐòÀà¡£
-
-Handjet.cpp
-ÕâÊÇ°üº¬Ó¦ÓÃ³ÌÐòÀà CHandjetApp µÄÖ÷ÒªÓ¦ÓÃ³ÌÐòÔ´ÎÄ¼þ¡£
-
-Handjet.rc
-ÕâÊÇ³ÌÐòÊ¹ÓÃµÄËùÓÐ Microsoft Windows ×ÊÔ´µÄÁÐ±í¡£Ëü°üÀ¨ RES ×ÓÄ¿Â¼ÖÐ´æ´¢µÄÍ¼±ê¡¢Î»Í¼ºÍ¹â±ê¡£´ËÎÄ¼þ¿ÉÒÔÖ±½ÓÔÚ Microsoft Visual C++ ÖÐ½øÐÐ±à¼­¡£ÏîÄ¿×ÊÔ´Î»ÓÚ 2052 ÖÐ¡£
-
-res\Handjet.ico
-ÕâÊÇÓÃ×÷Ó¦ÓÃ³ÌÐòÍ¼±êµÄÍ¼±êÎÄ¼þ¡£´ËÍ¼±ê°üÀ¨ÔÚÖ÷Òª×ÊÔ´ÎÄ¼þ Handjet.rc ÖÐ¡£
-
-res\Handjet.rc2
-´ËÎÄ¼þ°üº¬²»ÔÚ Microsoft Visual C++ ÖÐ½øÐÐ±à¼­µÄ×ÊÔ´¡£ÄúÓ¦¸Ã½«²»¿ÉÓÉ×ÊÔ´±à¼­Æ÷±à¼­µÄËùÓÐ×ÊÔ´·ÅÔÚ´ËÎÄ¼þÖÐ¡£
-
-
-/////////////////////////////////////////////////////////////////////////////
-
-Ó¦ÓÃ³ÌÐòÏòµ¼´´½¨Ò»¸ö¶Ô»°¿òÀà:
-
-HandjetDlg.h£¬HandjetDlg.cpp - ¶Ô»°¿ò
-ÕâÐ©ÎÄ¼þ°üº¬ CHandjetDlg Àà¡£¸ÃÀà¶¨ÒåÓ¦ÓÃ³ÌÐòÖ÷¶Ô»°¿òµÄÐÐÎª¡£¸Ã¶Ô»°¿òµÄÄ£°åÎ»ÓÚ Handjet.rc ÖÐ£¬¸ÃÎÄ¼þ¿ÉÒÔÔÚ Microsoft Visual C++ ÖÐ½øÐÐ±à¼­¡£
-
-
-/////////////////////////////////////////////////////////////////////////////
-
-ÆäËû¹¦ÄÜ:
-
-ActiveX ¿Ø¼þ
-Ó¦ÓÃ³ÌÐò°üÀ¨¶ÔÊ¹ÓÃ ActiveX ¿Ø¼þµÄÖ§³Ö¡£
-
-/////////////////////////////////////////////////////////////////////////////
-
-ÆäËû±ê×¼ÎÄ¼þ:
-
-StdAfx.h£¬StdAfx.cpp
-ÕâÐ©ÎÄ¼þÓÃÓÚÉú³ÉÃûÎª Handjet.pch µÄÔ¤±àÒëÍ· (PCH) ÎÄ¼þºÍÃûÎª StdAfx.obj µÄÔ¤±àÒëÀàÐÍÎÄ¼þ¡£
-
-Resource.h
-ÕâÊÇ±ê×¼Í·ÎÄ¼þ£¬Ëü¶¨ÒåÐÂµÄ×ÊÔ´ ID¡£
-Microsoft Visual C++ ¶ÁÈ¡²¢¸üÐÂ´ËÎÄ¼þ¡£
-
-Handjet.manifest
-	Ó¦ÓÃ³ÌÐòÇåµ¥ÎÄ¼þ¹© Windows XP ÓÃÀ´ÃèÊöÓ¦ÓÃ³ÌÐò
-	¶ÔÌØ¶¨°æ±¾²¢ÐÐ³ÌÐò¼¯µÄÒÀÀµÐÔ¡£¼ÓÔØ³ÌÐòÊ¹ÓÃ´Ë
-	ÐÅÏ¢´Ó³ÌÐò¼¯»º´æ¼ÓÔØÊÊµ±µÄ³ÌÐò¼¯»ò
-	´ÓÓ¦ÓÃ³ÌÐò¼ÓÔØË½ÓÐÐÅÏ¢¡£Ó¦ÓÃ³ÌÐòÇåµ¥¿ÉÄÜÎªÁËÖØÐÂ·Ö·¢¶ø×÷Îª
-	ÓëÓ¦ÓÃ³ÌÐò¿ÉÖ´ÐÐÎÄ¼þ°²×°ÔÚÏàÍ¬ÎÄ¼þ¼ÐÖÐµÄÍâ²¿ .manifest ÎÄ¼þ°üÀ¨£¬
-	Ò²¿ÉÄÜÒÔ×ÊÔ´µÄÐÎÊ½°üÀ¨ÔÚ¸Ã¿ÉÖ´ÐÐÎÄ¼þÖÐ¡£ 
-/////////////////////////////////////////////////////////////////////////////
-
-ÆäËû×¢ÊÍ:
-
-Ó¦ÓÃ³ÌÐòÏòµ¼Ê¹ÓÃ¡°TODO:¡±Ö¸Ê¾Ó¦Ìí¼Ó»ò×Ô¶¨ÒåµÄÔ´´úÂë²¿·Ö¡£
-
-Èç¹ûÓ¦ÓÃ³ÌÐòÔÚ¹²ÏíµÄ DLL ÖÐÊ¹ÓÃ MFC£¬ÔòÐèÒªÖØÐÂ·¢²¼ÕâÐ© MFC DLL£»Èç¹ûÓ¦ÓÃ³ÌÐòËùÓÃµÄÓïÑÔÓë²Ù×÷ÏµÍ³µÄµ±Ç°ÇøÓòÉèÖÃ²»Í¬£¬Ôò»¹ÐèÒªÖØÐÂ·¢²¼¶ÔÓ¦µÄ±¾µØ»¯×ÊÔ´ MFC100XXX.DLL¡£ÓÐ¹ØÕâÁ½¸öÖ÷ÌâµÄ¸ü¶àÐÅÏ¢£¬Çë²Î¼û MSDN ÎÄµµÖÐÓÐ¹Ø Redistributing Visual C++ applications (ÖØÐÂ·¢²¼ Visual C++ Ó¦ÓÃ³ÌÐò)µÄÕÂ½Ú¡£
-
-/////////////////////////////////////////////////////////////////////////////
+CandidateObject         å€™é€‰ç‰©ä½“ï¼Œæ‘„åƒå¤´è§†è§’ä¸­æ‰€æœ‰çš®è‚¤æ ·ç‰©ä½“
+CnadidateSignature      å€™é€‰ç‰©ä½“ç‰¹å¾ï¼Œå½¢çŠ¶ç‰¹å¾
+CandidateTracer         å¸§é—´è¿åŠ¨è·Ÿè¸ªå™¨ï¼Œç›‘æŽ§æ‘„åƒå¤´æ•èŽ·çš„ç›¸é‚»ä¸¤å¸§ä¹‹é—´è¿åŠ¨è·Ÿè¸ª
+DefectBlock             å€™é€‰ç‰©ä½“å½¢çŠ¶ç¼ºé™·ï¼ˆç‰¹å¾ï¼‰æ•°æ®ç»“æž„
+HandCandidate           å€™é€‰æ‰‹éƒ¨ï¼Œç›®å‰æœªä½¿ç”¨
+ImageProcessor          å›¾åƒå¤„ç†å™¨ï¼Œè´Ÿè´£å¤„ç†æ‘„åƒå¤´æ•èŽ·çš„åŽŸå§‹å›¾åƒï¼Œåˆ†æžæ‰€æœ‰å€™é€‰ç‰©ä½“åŠå…¶ä¸­çš„ç‰¹å¾
+MousePointerHelper      é¼ æ ‡æ“ä½œæ¶ˆæ¯ç¿»è¯‘
+MovementInfo            ä½ç§»ä¿¡æ¯æ•°æ®ç»“æž„
+PositionSmoothFilter    æŒ‡é’ˆç§»åŠ¨å¹³æ»‘æ»¤æ³¢å™¨
+PositionTransform       ä½ç½®å˜æ¢ï¼Œæœªä½¿ç”¨
+ShapeTransform          å½¢çŠ¶å˜æ¢ï¼Œæœªä½¿ç”¨
+ShapeUtil               å½¢çŠ¶å·¥å…·ï¼Œä¸‰è§’å‡½æ•°ç­‰
+TransformAnalyzer       å˜æ¢åˆ†æžå™¨ï¼Œåˆ†æžå½¢çŠ¶å’Œä½ç½®å˜æ¢ï¼Œäº§ç”Ÿç›¸åº”çš„åŠ¨ä½œ
+TransformLog            å˜æ¢æ—¥å¿—ï¼Œæœªä½¿ç”¨
