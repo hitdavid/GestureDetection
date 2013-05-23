@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E2F49AD4-22F8-49D9-B0DA-A0857F2F8D97}</ProjectGuid>
+    <RootNamespace>Handjet</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>c:\opencv\build\include;c:\opencv\build\include\opencv;c:\opencv\build\include\opencv2;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\opencv\build\x86\vc10\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>c:\opencv\build\include;c:\opencv\build\include\opencv;c:\opencv\build\include\opencv2;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_calib3d243d.lib;opencv_contrib243d.lib;opencv_core243d.lib;opencv_features2d243d.lib;opencv_flann243d.lib;opencv_gpu243d.lib;opencv_highgui243d.lib;opencv_imgproc243d.lib;opencv_legacy243d.lib;opencv_ml243d.lib;opencv_objdetect243d.lib;opencv_ts243d.lib;opencv_video243d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opencv_contrib243.lib;opencv_core243.lib;opencv_features2d243.lib;opencv_flann243.lib;opencv_gpu243.lib;opencv_highgui243.lib;opencv_imgproc243.lib;opencv_legacy243.lib;opencv_ml243.lib;opencv_objdetect243.lib;opencv_ts243.lib;opencv_video243.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\Handjet.ico" />
+    <None Include="res\Handjet.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CandidateObject.h" />
+    <ClInclude Include="CandidateSignature.h" />
+    <ClInclude Include="CandidateTracer.h" />
+    <ClInclude Include="CvHeader.h" />
+    <ClInclude Include="DefectBlock.h" />
+    <ClInclude Include="HandCandidate.h" />
+    <ClInclude Include="Handjet.h" />
+    <ClInclude Include="HandjetDlg.h" />
+    <ClInclude Include="HandModelProperty.h" />
+    <ClInclude Include="HeadCandidate.h" />
+    <ClInclude Include="ImageProcessor.h" />
+    <ClInclude Include="MousePointerHelper.h" />
+    <ClInclude Include="MovementInfo.h" />
+    <ClInclude Include="PositionSmoothFilter.h" />
+    <ClInclude Include="PositionTransform.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="ShapeTransform.h" />
+    <ClInclude Include="ShapeUtil.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TracingTableItem.h" />
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="TransformAnalyzer.h" />
+    <ClInclude Include="TransformLog.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CandidateObject.cpp" />
+    <ClCompile Include="CandidateTracer.cpp" />
+    <ClCompile Include="HandCandidate.cpp" />
+    <ClCompile Include="Handjet.cpp" />
+    <ClCompile Include="HandjetDlg.cpp" />
+    <ClCompile Include="HandModelProperty.cpp" />
+    <ClCompile Include="ImageProcessor.cpp" />
+    <ClCompile Include="MousePointerHelper.cpp" />
+    <ClCompile Include="PositionSmoothFilter.cpp" />
+    <ClCompile Include="PositionTransform.cpp" />
+    <ClCompile Include="ShapeTransform.cpp" />
+    <ClCompile Include="ShapeUtil.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="TransformAnalyzer.cpp" />
+    <ClCompile Include="TransformLog.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Handjet.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="Handjet.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
