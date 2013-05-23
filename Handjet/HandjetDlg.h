@@ -22,6 +22,7 @@ public:
 private:
 	ImageProcessor* m_ImageProcessor;
 	bool checked;
+	bool showVideo;
 
 // й╣ож
 protected:
@@ -37,4 +38,5 @@ public:
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedCheck();
+	afx_msg void OnBnClickedButton3();
 };

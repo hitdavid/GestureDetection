@@ -356,7 +356,6 @@ bool Handjet::CandidateObject::recheckIfFist() {
 					fingersExceptBig++;
 					block->judgedValue = block->judgedValue | MAYBE_OPEN_PALM;
 					openCount++;
-					fingerBlocks->push_back(block);
 				}
 				else if(block->start_end_len > (block->depth_end_len + block->start_depth_len) / 3 && 
 					block->start_end_len < (block->depth_end_len + block->start_depth_len) * 2 / 3) {
@@ -364,41 +363,17 @@ bool Handjet::CandidateObject::recheckIfFist() {
 						fingersExceptBig++;
 						block->judgedValue = block->judgedValue | MAYBE_SEMI_OPEN_PALM | MAYBE_SEMI_CLOSED_PALM;
 						semiCount ++;
-						fingerBlocks->push_back(block);
 				}
-
 			}
 		}
 	}
 
-	int neightborCount = 0;
-	double lastOrientation = 0.0;
+	int maybeFinferCount = openCount + semiCount;
 
-	int maybeFinferCount = 0;
-
-	for (std::list<DefectBlock*>::iterator it = fingerBlocks->begin(); it != fingerBlocks->end(); ++ it) {
-
-		if(lastOrientation > 0.01 || lastOrientation < -0.01) {
-			if(abs((*it)->orientation - lastOrientation) < 60) {
-				//result = MAYBE_HEAD | MAYBE_HEAD_WITH_NECK;
-				maybeFinferCount++;
-			}
+	if(maybeFinferCount >=1) {
+		if(openCount >= 3) {
+			this->setShape(m_currentShape | MAYBE_FOUR);
 		}
-		lastOrientation = (*it)->orientation;
-
-		if(findNeightborBlock((*it), fingerBlocks) > 0) {
-			neightborCount++;
-		}
-	}
-
-	delete fingerBlocks;
-
-	if(fingersExceptBig > 0) {
-		//手指数等于区块总数加一
-		fingersExceptBig++;
-	}
-
-	if(fingersExceptBig >= 2 || neightborCount >=3) {
 		return false;
 	}
 

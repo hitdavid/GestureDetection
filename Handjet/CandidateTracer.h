@@ -12,10 +12,17 @@ namespace Handjet{
 
 		bool isLeftDown;
 		bool isDraging;
+		bool isRightDown;
+
 		clock_t  lastLeftDownTime;
 		clock_t  lastLeftUpTime;
 
+		clock_t  lastRightDownTime;
+		clock_t  lastRightUpTime;
+
 		clock_t lastGuestureTime;
+
+		int frameWithoutHand;
 
 		CvPoint mode1LastPoint;
 

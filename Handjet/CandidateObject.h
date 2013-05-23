@@ -23,7 +23,7 @@ namespace Handjet {
 		const static unsigned int  MAYBE_OPEN_PALM = 1024;
 		const static unsigned int  MAYBE_ONE = 8192;
 		const static unsigned int  MAYBE_TWO = 16384;
-		const static unsigned int  MAYBE_SIX = 32768;
+		const static unsigned int  MAYBE_FOUR = 32768;
 		const static unsigned int  MAYBE_SEVEN = 65536;
 
 		const static unsigned int MAYBE_NOT_FIST = 2048;

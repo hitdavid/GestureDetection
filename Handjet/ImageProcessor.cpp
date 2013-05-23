@@ -54,10 +54,11 @@ void Handjet::ImageProcessor::process() {
 		frame = cvQueryFrame(capture);
 		processFrame(frame);
 		m_tracer->updateCandidates(m_candidates);
-		waitKey(10);
+		
 		if(shouldShowVideo && m_displayImage) {
 			cvShowImage( "result", m_displayImage );
 		}
+		waitKey(10);
 	}
 	
 
@@ -72,6 +73,7 @@ void Handjet::ImageProcessor::processFrame(IplImage* frame) {
 	IplImage* img_bw1 = cvCreateImage( cvGetSize(frame), IPL_DEPTH_8U, 3 );
 	IplImage* img_bw = cvCreateImage( cvGetSize(frame), IPL_DEPTH_8U, 1 );
 	cvFlip(frame, frame,4);
+	//SkinRGB(frame, img_bw1);
 	cvSkinOtsu(frame, img_bw);
 	//cvCvtColor(img_bw1, img_bw, 6);
 	//cvSkinYUV(frame, img_bw);
@@ -119,7 +121,6 @@ int Handjet::ImageProcessor::getRunMode() {
 
 void Handjet::ImageProcessor::SkinRGB(IplImage* rgb,IplImage* _dst)
 {
-    cout<<"111"<<endl;
     assert(rgb->nChannels==3&& _dst->nChannels==3);
 
     static const int R=2;

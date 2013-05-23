@@ -42,7 +42,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
-	ON_BN_CLICKED(IDC_MFCLINK1, &CAboutDlg::OnBnClickedMfclink1)
+
 END_MESSAGE_MAP()
 
 
@@ -69,6 +69,7 @@ BEGIN_MESSAGE_MAP(CHandjetDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON1, &CHandjetDlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, &CHandjetDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_CHECK1, &CHandjetDlg::OnBnClickedCheck)
+	ON_BN_CLICKED(IDC_BUTTON3, &CHandjetDlg::OnBnClickedButton3)
 END_MESSAGE_MAP()
 
 
@@ -105,6 +106,8 @@ BOOL CHandjetDlg::OnInitDialog()
 
 	// TODO: 在此添加额外的初始化代码
 	checked = false;
+	showVideo = false;
+	m_ImageProcessor = NULL;
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -167,7 +170,7 @@ void CHandjetDlg::OnBnClickedButton1()
 	m_ImageProcessor->showVideo();
 	m_ImageProcessor->process();
 	delete m_ImageProcessor;
-	OnOK();
+	//OnOK();
 }
 
 
@@ -195,7 +198,16 @@ void CHandjetDlg::OnBnClickedCheck()
 }
 
 
-void CAboutDlg::OnBnClickedMfclink1()
+
+void CHandjetDlg::OnBnClickedButton3()
 {
 	// TODO: 在此添加控件通知处理程序代码
+	if(m_ImageProcessor) {
+		if(showVideo) {
+			m_ImageProcessor->stopVideo();
+		}
+		else {
+			m_ImageProcessor->showVideo();
+		}
+	}
 }
