@@ -47,6 +47,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>c:\opencv\build\include;c:\opencv\build\include\opencv;c:\opencv\build\include\opencv2;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\opencv\build\x86\vc10\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -100,10 +101,16 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="ReadMe.txt" />
+    <None Include="res\swipe_l.cur" />
+    <None Include="res\fist_w.cur" />
+    <None Include="res\middle_w.cur" />
+    <None Include="res\hand_b.cur" />
     <None Include="res\Handjet.ico" />
     <None Include="res\Handjet.rc2" />
+    <None Include="res\hand_w.cur" />
+    <None Include="res\swipe_l1.cur" />
+    <None Include="res\swipe_r.cur" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CandidateObject.h" />

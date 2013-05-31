@@ -17,6 +17,7 @@
 
 class CHandjetApp : public CWinApp
 {
+
 public:
 	CHandjetApp();
 

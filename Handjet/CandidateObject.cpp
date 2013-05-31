@@ -367,6 +367,7 @@ bool Handjet::CandidateObject::recheckIfFist() {
 			}
 		}
 	}
+	//git test
 
 	int maybeFinferCount = openCount + semiCount;
 

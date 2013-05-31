@@ -3,6 +3,7 @@
 #include "MovementInfo.h"
 #include "MousePointerHelper.h"
 #include "ImageProcessor.h"
+#include "resource.h"
 #include <ctime>
 
 
@@ -69,15 +70,19 @@ void Handjet::CandidateTracer::updateCandidates(std::list<CandidateObject*>* l) 
 					float timediff_sec = ((float)cts);// / CLOCKS_PER_SEC;
 					
 					CvPoint newPoint = hand->getValidPosition();
-					if(newPoint.x - mode1LastPoint.x < -70) {
+					if((newPoint.x - mode1LastPoint.x < -70) ||
+						(newPoint.y - mode1LastPoint.y < -70)) {
 						if(timediff_sec > 1000) {
+							SetCursor(AfxGetApp()->LoadCursor(IDC_SWIPE_L));
 							MousePointerHelper::Instance()->prevSlideAction();
 							lastGuestureTime = clock();
 							return;
 						}
 					}
-					else if(newPoint.x - mode1LastPoint.x > 70) {
+					else if((newPoint.x - mode1LastPoint.x > 70) ||
+							(newPoint.y - mode1LastPoint.y > 70)){
 						if(timediff_sec > 1000) {
+							SetCursor(AfxGetApp()->LoadCursor(IDC_SWIPE_R));
 							MousePointerHelper::Instance()->nextSlideAction();
 							lastGuestureTime = clock();
 							return;
@@ -96,6 +101,7 @@ void Handjet::CandidateTracer::updateCandidates(std::list<CandidateObject*>* l) 
 			if(!isLeftDown) {
 				isLeftDown = true;
 				lastLeftDownTime = clock();
+				SetCursor(LoadCursor(NULL, IDC_HAND));
 			}
 			else {
 				clock_t  cts = clock() - lastLeftDownTime;
@@ -103,7 +109,7 @@ void Handjet::CandidateTracer::updateCandidates(std::list<CandidateObject*>* l) 
 				if(timediff_sec > 3000 && isDraging == false) {
 					if(mode == 0) {
 						MousePointerHelper::Instance()->dragBegin();
-						
+						SetCursor(LoadCursor(NULL, IDC_WAIT));
 					}
 					isDraging = true;
 				}
@@ -144,7 +150,7 @@ void Handjet::CandidateTracer::updateCandidates(std::list<CandidateObject*>* l) 
 					if(timediff_sec > 1000) {
 						if(mode == 0) {
 							MousePointerHelper::Instance()->dragRelease();
-							
+							SetCursor(LoadCursor(NULL, IDC_ARROW));
 						}
 						isDraging = false;
 					}
@@ -156,6 +162,7 @@ void Handjet::CandidateTracer::updateCandidates(std::list<CandidateObject*>* l) 
 					if(timediff_sec > 2000) {
 						if(mode == 0) {
 							MousePointerHelper::Instance()->leftDBClick();
+							SetCursor(LoadCursor(NULL, IDC_ARROW));
 						}
 						else if(mode == 1 && timediff_sec < 5000) {
 							MousePointerHelper::Instance()->leftClick();
@@ -163,6 +170,7 @@ void Handjet::CandidateTracer::updateCandidates(std::list<CandidateObject*>* l) 
 					}else if(timediff_sec > 500) {
 						if(mode == 0) {
 							MousePointerHelper::Instance()->leftClick();
+							SetCursor(LoadCursor(NULL, IDC_ARROW));
 						}
 					}
 				}

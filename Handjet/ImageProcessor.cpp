@@ -22,6 +22,7 @@ Handjet::ImageProcessor::ImageProcessor() {
 
 	m_tracer = new CandidateTracer();
 	m_candidates = new std::list<Handjet::CandidateObject*>();
+	ifBlueMethodUsed = false;
 }
 
 Handjet::ImageProcessor::~ImageProcessor() {
@@ -73,8 +74,16 @@ void Handjet::ImageProcessor::processFrame(IplImage* frame) {
 	IplImage* img_bw1 = cvCreateImage( cvGetSize(frame), IPL_DEPTH_8U, 3 );
 	IplImage* img_bw = cvCreateImage( cvGetSize(frame), IPL_DEPTH_8U, 1 );
 	cvFlip(frame, frame,4);
-	//SkinRGB(frame, img_bw1);
-	cvSkinOtsu(frame, img_bw);
+
+	if(ifBlueMethodUsed) {
+		SkinRGB(frame, img_bw1);
+		cvSkinOtsu(img_bw1, img_bw);
+	}
+	else {
+		//SkinRGB(frame, img_bw1);
+		cvSkinOtsu(frame, img_bw);
+	}
+	
 	//cvCvtColor(img_bw1, img_bw, 6);
 	//cvSkinYUV(frame, img_bw);
 
@@ -103,6 +112,10 @@ void Handjet::ImageProcessor::showVideo() {
 void Handjet::ImageProcessor::stopVideo() {
 	shouldShowVideo = false;
 	cvDestroyWindow("result");
+}
+
+void Handjet::ImageProcessor::blueMethodSwitch() {
+	ifBlueMethodUsed = !ifBlueMethodUsed;
 }
 
 void Handjet::ImageProcessor::showTracing() {
@@ -135,8 +148,8 @@ void Handjet::ImageProcessor::SkinRGB(IplImage* rgb,IplImage* _dst)
         unsigned char* pdst=(unsigned char*)dst->imageData+h*dst->widthStep;
         for (int w=0;w<rgb->width;w++) {
             if ((prgb[R]>95 && prgb[G]>40 && prgb[B]>20 &&
-                 prgb[R]-prgb[B]>15 && prgb[R]-prgb[G]>15/*&&
-                     !(prgb[R]>170&&prgb[G]>170&&prgb[B]>170)*/)||//uniform illumination
+                 prgb[R]-prgb[B]>15 && prgb[R]-prgb[G]>15 &&
+                     !(prgb[R]>170&&prgb[G]>170&&prgb[B]>170))||//uniform illumination
                     (prgb[R]>200 && prgb[G]>210 && prgb[B]>170 &&
                      abs(prgb[R]-prgb[B])<=15 && prgb[R]>prgb[B]&& prgb[G]>prgb[B])//lateral illumination
                     ) {

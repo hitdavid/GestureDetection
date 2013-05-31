@@ -6,6 +6,7 @@
 #include "Handjet.h"
 #include "HandjetDlg.h"
 #include "afxdialogex.h"
+#include "MousePointerHelper.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -28,8 +29,8 @@ public:
 // 实现
 protected:
 	DECLARE_MESSAGE_MAP()
-public:
-	afx_msg void OnBnClickedMfclink1();
+
+	
 };
 
 CAboutDlg::CAboutDlg() : CDialogEx(CAboutDlg::IDD)
@@ -43,6 +44,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 
@@ -70,6 +72,8 @@ BEGIN_MESSAGE_MAP(CHandjetDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON2, &CHandjetDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_CHECK1, &CHandjetDlg::OnBnClickedCheck)
 	ON_BN_CLICKED(IDC_BUTTON3, &CHandjetDlg::OnBnClickedButton3)
+	ON_WM_MOUSEMOVE()
+	ON_BN_CLICKED(IDC_CHECK2, &CHandjetDlg::OnBnClickedCheck2)
 END_MESSAGE_MAP()
 
 
@@ -105,9 +109,23 @@ BOOL CHandjetDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+	blueMethod = false;
 	checked = false;
 	showVideo = false;
 	m_ImageProcessor = NULL;
+
+	m_cursor_hw = CopyCursor(AfxGetApp()->LoadCursor(IDC_HAND_W));
+	m_cursor_backup_hw = CopyCursor(LoadCursor(NULL, IDC_ARROW));
+
+	m_cursor_fw = CopyCursor(AfxGetApp()->LoadCursor(IDC_FIST_W));
+	m_cursor_backup_fw = CopyCursor(LoadCursor(NULL, IDC_HAND));
+
+	m_cursor_mw = CopyCursor(AfxGetApp()->LoadCursor(IDC_MIDDLE_W));
+	m_cursor_backup_mw = CopyCursor(LoadCursor(NULL, IDC_WAIT));
+
+	//SetCursor(m_cursor);
+	
+
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -165,6 +183,10 @@ HCURSOR CHandjetDlg::OnQueryDragIcon()
 
 void CHandjetDlg::OnBnClickedButton1()
 {
+	SetSystemCursor(m_cursor_hw, 32512 );
+	SetSystemCursor(m_cursor_mw, 32514 );
+	SetSystemCursor(m_cursor_fw, 32649 );
+	
 	// TODO: 在此添加控件通知处理程序代码
 	m_ImageProcessor = ImageProcessor::Instance();
 	m_ImageProcessor->showVideo();
@@ -176,6 +198,19 @@ void CHandjetDlg::OnBnClickedButton1()
 
 void CHandjetDlg::OnBnClickedButton2()
 {
+
+	SetSystemCursor(m_cursor_backup_hw, 32512 );
+	SetSystemCursor(m_cursor_backup_mw, 32514 );
+	SetSystemCursor(m_cursor_backup_fw, 32649 );
+
+	DestroyCursor(m_cursor_backup_hw);
+	DestroyCursor(m_cursor_backup_mw);
+	DestroyCursor(m_cursor_backup_fw);
+
+	m_cursor_backup_fw = NULL;
+	m_cursor_backup_mw = NULL;
+	m_cursor_backup_hw = NULL;
+
 	// TODO: 在此添加控件通知处理程序代码
 	m_ImageProcessor->stopVideo();
 	m_ImageProcessor->stop();
@@ -210,4 +245,30 @@ void CHandjetDlg::OnBnClickedButton3()
 			m_ImageProcessor->showVideo();
 		}
 	}
+}
+
+
+BOOL CHandjetDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	//if ( m_cursor )
+	//{
+	//	::SetCursor(m_cursor);
+	//	return TRUE;
+	//}
+	return CDialogEx::OnSetCursor(pWnd, nHitTest, message);;
+}
+
+
+void CHandjetDlg::OnMouseMove(UINT nFlags, CPoint point)
+{
+	//::SetCursor(m_cursor);
+	
+	CDialogEx::OnMouseMove(nFlags, point);
+	
+}
+
+
+void CHandjetDlg::OnBnClickedCheck2()
+{
+	m_ImageProcessor->blueMethodSwitch();
 }

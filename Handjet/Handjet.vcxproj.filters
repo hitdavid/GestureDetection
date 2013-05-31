@@ -22,7 +22,27 @@
     <None Include="res\Handjet.ico">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="res\hand_b.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\hand_w.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\middle_w.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\fist_w.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\swipe_l.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\swipe_r.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\swipe_l1.cur">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Handjet.h">

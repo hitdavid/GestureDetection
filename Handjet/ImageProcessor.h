@@ -17,7 +17,7 @@ namespace Handjet {
 		bool shouldShowVideo;
 		IplImage* m_bwImage, *m_displayImage;
 		int m_runMode;
-
+		bool ifBlueMethodUsed;
 	private:
 		ImageProcessor();
 		
@@ -49,6 +49,8 @@ namespace Handjet {
 		IplImage* getDisplayedImage();
 		int setRunMode(int mode);
 		int getRunMode();
+
+		void blueMethodSwitch();
 
 	};
 }

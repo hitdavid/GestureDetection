@@ -5,14 +5,23 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Handjet", "Handjet\Handjet.
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Win32 = CD_ROM|Win32
 		Debug|Win32 = Debug|Win32
+		DVD-5|Win32 = DVD-5|Win32
 		Release|Win32 = Release|Win32
+		SingleImage|Win32 = SingleImage|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2F49AD4-22F8-49D9-B0DA-A0857F2F8D97}.CD_ROM|Win32.ActiveCfg = Release|Win32
+		{E2F49AD4-22F8-49D9-B0DA-A0857F2F8D97}.CD_ROM|Win32.Build.0 = Release|Win32
 		{E2F49AD4-22F8-49D9-B0DA-A0857F2F8D97}.Debug|Win32.ActiveCfg = Debug|Win32
 		{E2F49AD4-22F8-49D9-B0DA-A0857F2F8D97}.Debug|Win32.Build.0 = Debug|Win32
+		{E2F49AD4-22F8-49D9-B0DA-A0857F2F8D97}.DVD-5|Win32.ActiveCfg = Debug|Win32
+		{E2F49AD4-22F8-49D9-B0DA-A0857F2F8D97}.DVD-5|Win32.Build.0 = Debug|Win32
 		{E2F49AD4-22F8-49D9-B0DA-A0857F2F8D97}.Release|Win32.ActiveCfg = Release|Win32
 		{E2F49AD4-22F8-49D9-B0DA-A0857F2F8D97}.Release|Win32.Build.0 = Release|Win32
+		{E2F49AD4-22F8-49D9-B0DA-A0857F2F8D97}.SingleImage|Win32.ActiveCfg = Release|Win32
+		{E2F49AD4-22F8-49D9-B0DA-A0857F2F8D97}.SingleImage|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

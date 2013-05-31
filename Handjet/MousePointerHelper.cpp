@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "MousePointerHelper.h"
+#include "resource.h"
 
 static Handjet::MousePointerHelper* instance;
 
@@ -16,11 +17,20 @@ Handjet::MousePointerHelper::MousePointerHelper(void) {
 	this->capturedHeight = 180;
 	this->screenWidth = GetSystemMetrics(SM_CXSCREEN);  
 	this->screenHeight = GetSystemMetrics(SM_CYSCREEN);  
+
+	HWND hWnd = WindowFromPoint(CPoint(0, 0));
+	HDC hDC = GetWindowDC(hWnd);
+	backupMemDC = CreateCompatibleDC(hDC);
+
+	firstDraw = true;
 }
 
 
 Handjet::MousePointerHelper::~MousePointerHelper(void)
 {
+	HWND hWnd = WindowFromPoint(CPoint(0, 0));
+	::DeleteDC(backupMemDC);
+	::ReleaseDC(hWnd, backupMemDC);
 }
 
 void Handjet::MousePointerHelper::MoveTo(CvPoint p) {
@@ -45,7 +55,7 @@ void Handjet::MousePointerHelper::MoveTo(CvPoint p) {
 	else {
 		y = screenHeight;
 	}
-
+	//drawCursor(x, y);
 	SetCursorPos(x, y);
 }
 
@@ -98,4 +108,42 @@ void Handjet::MousePointerHelper::wheelScroll(unsigned int direction, unsigned i
 		d = -120;
 	}
 	mouse_event (MOUSEEVENTF_WHEEL , 0, 0, d, 0 );
+}
+
+
+void Handjet::MousePointerHelper::drawCursor(int x, int y)
+{
+	//HWND hWnd = WindowFromPoint(CPoint(x, y));
+	//if(!firstDraw)
+	//	SetCapture(hWnd);
+	//HWND hWnd = WindowFromPoint(CPoint(x, y));
+	////创建屏幕DC
+	//HDC hDC = GetWindowDC(hWnd);
+	////创建内存DC
+	//HDC hMemDC = CreateCompatibleDC(hDC);
+	//backupMemDC = CreateCompatibleDC(hDC);
+
+	//CBitmap hBitmap;
+	//hBitmap.LoadBitmap(IDB_BITMAP1);
+	//HBITMAP oldBitmap = (HBITMAP)::SelectObject(hMemDC, hBitmap);
+
+	//if(!firstDraw) {
+	//	::TransparentBlt(hDC, lastx, lasty, 32, 32, backupMemDC, 0, 0, 32, 32, RGB(255, 255, 255));
+	//}
+
+	//
+	////backup
+	//::TransparentBlt(backupMemDC, 0, 0, 32, 32, hDC, x, y, 32, 32, RGB(255, 255, 255));
+
+	//::TransparentBlt(hDC, x, y, 32, 32, hMemDC, 0, 0, 32, 32, RGB(255, 255, 255));
+	//lastx = x;
+	//lasty = y;
+	//firstDraw = false;
+
+	//::SelectObject(hMemDC, oldBitmap);
+	//::DeleteObject(hBitmap);
+	////删除内存DC
+	//::DeleteDC(hMemDC);
+	////释放屏幕DC
+	//::ReleaseDC(hWnd, hDC);
 }

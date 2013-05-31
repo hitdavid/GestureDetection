@@ -13,6 +13,12 @@ namespace Handjet {
 
 		int screenWidth;
 		int screenHeight;
+		HDC backupMemDC;
+
+		int lastx;
+		int lasty;
+
+		bool firstDraw;
 
 	public:
 
@@ -40,5 +46,6 @@ namespace Handjet {
 		void nextSlideAction(); //page down
 
 		void wheelScroll(unsigned int direction, unsigned int delta);
+		void drawCursor(int x, int y);
 	};
 }
